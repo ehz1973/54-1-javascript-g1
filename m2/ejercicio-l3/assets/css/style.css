@@ -1,17 +1,35 @@
 /* ESTILOS RESET */
 
 * {
-    margin:0;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* ESTILOS BASE */
+
+main section {
+    padding-bottom: 40px;
+}
+
+main section:first-child {
+    padding-top: 20px;
+}
+
+h2,
+h3,
+h3,
+h4,
+h6 {
+    margin-bottom: 16px;
 }
 
 /* ESTILOS HEADER */
 
 header {
-    background-color:rgb(25, 23, 23);
+    background-color: rgb(25, 23, 23);
     color: white;
-    text-align:center;
+    text-align: center;
     /* padding-top: 4px;
     padding-bottom: 16px; */
     padding: 8px 0 20px 0px;
@@ -43,9 +61,49 @@ nav ul li a {
     font-weight: 600;
 }
 
-nav ul li a:hover{
+nav ul li a:hover {
     color: beige;
     text-decoration: underline;
 }
 
+/* ESTILOS MAIN */
 
+main {
+    width: 70%;
+    margin: auto;
+}
+
+/* ESTILOS PROYECTOS */
+
+.proyecto figure {
+    border: 4px silver dashed;
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+    max-width: 220px;
+    margin-bottom: 20px;
+}
+
+.proyecto img {
+    max-width: 220px;
+    max-height: 150px;
+}
+
+.proyecto figcaption {
+    background-color: #222222;
+    color: white;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
+}
+
+.proyecto p {
+    margin-bottom: 20px;
+}
+
+.proyecto a {
+    background-color: #222222;
+    color: white;
+    padding: 4px 8px;
+    text-decoration: none;
+}
