@@ -1,0 +1,18 @@
+<script>
+    //CALCULAR EL INDICE DE MASA CORPORAL DE UNA PERSONA
+    //LOS DATOS NECESARIOS DEBEN SER INGRESADOS MEDIANTRE PROMPT
+
+
+    let peso = prompt("Ingresa tu peso (kg):");
+    let estatura = prompt("Ingresa tu estatura en metros, ejemplo: 1.70");
+
+    peso = Number(peso);
+    estatura = Number(estatura);
+
+    let estatura2 = estatura * estatura;
+
+    let IMC = peso / estatura2;
+
+    alert("Tu IMC es: " + IMC.toFixed(2));
+
+</script>
