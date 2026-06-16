@@ -1,0 +1,40 @@
+<script>
+
+//EJEMPLO CALL CENTER
+
+let mensaje = 
+`Menú de opciones, presiona la opción, ejemplo: 1:
+\n1. Servicio al cliente.\n2. Contratación planes telefonía.
+\n3. Contratación planes internet.
+\n4. Dejar un reclamo.
+\n5. Contactar con un ejecutivo.
+\n6. Cancelar.
+`;
+
+let opcion = prompt(mensaje);
+
+switch (opcion) {
+    case "1":
+        alert("Usted será derivado al área de atención al cliente.");
+        break;
+    case "2":
+    case "3":
+        alert("Usted será derivado con un vendedor");
+        break;
+    case "4":
+        alert("A continuación deje la grabación de audio de su reclamo para ser procesado posteriormente.");
+        break;
+    case "5":
+        alert("Usted será atendido en breve por un ejecutivo de la empresa.");
+        break;
+    case "6":
+        alert("Gracias por preferirnos.");
+        break;
+
+    default:
+        alert("Opción incorrecta, vuelva a intentar.");
+        break;
+}
+
+</script>
+

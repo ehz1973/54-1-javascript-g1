@@ -1,0 +1,12 @@
+Temas por revisar:
+- if ternario
+- Switch case
+- operadores Lógicos: OR, AND Y NOT
+- Tipo String: propiedades y métodos
+- arrays
+
+
+PRÓXIMA LECCIÓN:
+
+- ARRAYS Y SUS métodos (PUSH, POP, SHIFT, UNSHIFT, INCLUDES, JOIN, FIND, FILTER)
+- BUCLES (for, while, do while)
