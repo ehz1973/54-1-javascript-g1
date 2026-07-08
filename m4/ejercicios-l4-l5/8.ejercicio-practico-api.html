@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Rick & Morty</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header class="py-3">
+        <h1 class="text-center">PERSONAJES DE RICK AND MORTY</h1>
+    </header>
+
+    <main class="container">
+
+        <section class="py-3">
+            <h2 class="text-center">Listado de personajes</h2>
+
+            <div class="row g-3" id="galeria-personajes">
+                <!-- AQUÍ SE CARGAR LAS TARJETAS DE FORMA DINÁMICA -->
+            </div>
+        </section>
+    </main>
+
+
+
+    <script>
+
+        const getPersonajes = async () =>{
+            const URL = "https://rickandmortyapi.com/api/character";
+            const response = await fetch(URL);
+            const data = await response.json();
+            return data.results
+        };
+
+
+        const crearTarjeta = (personaje) => {
+
+            let { id, name, status, species, gender, image } = personaje;
+            return `
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card mx-auto">
+                        <img src="${image}" class="card-img-top w-100" alt="${name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${name}</h5>
+                            <p class="card-text">Estado: ${status} </p>
+                            <p class="card-text">Especie: ${species}</p>
+                            <p class="card-text">Genero: ${gender}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+
+        const cargarTarjetas = (personajes = []) => {
+
+            if(personajes.length == 0) return;
+
+            let acumuladorTarjetas = "";
+            for (const personaje of personajes) {
+                acumuladorTarjetas += crearTarjeta(personaje);
+            }
+
+            document.getElementById("galeria-personajes").innerHTML = acumuladorTarjetas;
+        }
+
+        const main = async () => {
+
+            try {
+                const personajes = await getPersonajes();
+
+                console.log("cantidad de personajes:", personajes.length);
+                cargarTarjetas(personajes);
+            } catch (error) {
+                console.log("Error:", error);
+            }
+        }
+
+        main();
+    </script>
+</body>
+
+</html>
