@@ -8,14 +8,6 @@ class Tarea {
         this.estado = false; //false -> pendiente / true -> finalizado
         this.fechaCreacion = moment().format('DD/MM/YYYY');
     }
-
-    // estadoStr(){
-    //     if(this.estado){
-    //         return "Finalizado";
-    //     }else{
-    //         return "Pendiente";
-    //     }
-    // }
 }
 
 export default Tarea;

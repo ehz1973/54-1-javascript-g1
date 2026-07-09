@@ -5,7 +5,6 @@ const getTareas = async () => {
     urlBase += "/tareasJson.json";
 
     const response = await fetch(urlBase);
-
     const data = await response.json();
 
     return data.tareas;
@@ -41,9 +40,12 @@ class GestionTareas {
     // --- UPDATE ---
     finalizarTarea(id) {
         const tarea = this.obtenerTareaPorId(id);
-        if (!tarea) return null;
+        if (!tarea) return false;
 
         tarea.estado = true;
+
+        this.guardarEnLocalStorage();
+
         return tarea;
     }
 
@@ -53,6 +55,7 @@ class GestionTareas {
         if (indice === -1) return false;
 
         this.tareas.splice(indice, 1);
+        this.guardarEnLocalStorage();
         return true;
     }
 
